@@ -1,13 +1,13 @@
 module RSA (rsa) where
 
 type PrivateKey = (Integer, Integer)
-type PublicKey = (Integer,Integer)
+type PublicKey = (Integer, Integer)
 
 type Message = String
-type EncodeMessage = Integer
+type EncodedMessage = Integer
 type EncryptedMessage = Integer
 type Sign = Integer
-type SignedMessage = (Sign,Message)
+type SignedMessage = (Sign, Message)
 
 data KeyPair = KeyPair (PrivateKey, PublicKey) deriving (Show, Eq)
 
@@ -32,11 +32,11 @@ generateKeyPair p q = KeyPair (privateKey, publicKey)
     publicKey = let n = p * q in generatePublicKey n e :: PublicKey
 
 -- TODO: Implement this.
-encodeMessage :: Message -> EncodeMessage
+encodeMessage :: Message -> EncodedMessage
 encodeMessage = id
 
 -- TODO: Implement this.
-decodeMessage :: EncodeMessage -> Message
+decodeMessage :: EncodedMessage -> Message
 decodeMessage = id
 
 encrypt :: PublicKey -> Message -> EncryptedMessage
